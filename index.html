@@ -362,12 +362,13 @@
                     source: window.location.href
                 };
                 try {
-                    const body = new URLSearchParams(payload);
                     await fetch(FORM_ENDPOINT, {
-                        method: "POST",
-                        mode: "no-cors",
-                        headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-                        body
+                    method: "POST",
+                    mode: "no-cors",
+                    headers: {
+                    "Content-Type": "text/plain;charset=UTF-8"
+                    },
+                    body: JSON.stringify(payload)
                     });
                     setSubmitted(true);
                 } catch (err) {
